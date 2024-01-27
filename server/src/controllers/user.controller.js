@@ -72,7 +72,6 @@ const loginUser = asyncHandler( async(req, res) => {
     
     const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
 
-    console.log(accessToken);
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken");
 
     const options = {
@@ -132,7 +131,7 @@ const changeAvatar = asyncHandler( async(req, res) => {
 
     if(!avatar) throw new ApiError(400, "Avatar required");
 
-    fs.unlinkSync(avatarLocalPath);
+    
 
     const user = await User.findByIdAndUpdate(
         req.user?._id,
@@ -160,7 +159,7 @@ const editUserProfile = asyncHandler( async(req, res) => {
     throw new ApiError(400, "New password and confirm new password must be same");
     
     const emailExists = await User.findOne({email})
-    if(emailExists && (emailExists._id !== req.user?._id)) 
+    if(emailExists && (emailExists._id === req.user?._id)) 
     throw new ApiError(400, "Email already exists")
 
     const nameExists = await User.findOne({name})
