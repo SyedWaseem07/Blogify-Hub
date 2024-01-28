@@ -17,7 +17,7 @@ import EditPost from "./pages/EditPost"
 import DeletePost from "./pages/DeletePost"
 import CategoryPost from "./pages/CategoryPost"
 import DashBoard from "./pages/DashBoard"
-
+import UserProvider from "./context/UserContext"
 
 import './index.css'
 
@@ -26,7 +26,7 @@ import './index.css'
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Layout />,
+        element: <UserProvider> <Layout /> </UserProvider>,
         errorElement: <ErrorPage />,
         children: [
             {index: true, element: <Home />},

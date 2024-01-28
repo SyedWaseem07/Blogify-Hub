@@ -1,7 +1,13 @@
 import React from 'react'
-import { useState } from 'react'
+import { useContext } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import ReactQuill from 'react-quill'
 import "react-quill/dist/quill.snow.css";
+import { UserContext } from "../context/UserContext"
+import axios from 'axios';
+import Cookies from "js-cookie";
 
 const modules = {
     toolbar: [
@@ -26,6 +32,8 @@ const CreatePost = () => {
     const [category, setCategory] = useState('Uncategorized');
     const [description, setDescription] = useState('');
     const [thumbnail, setThumbnail] = useState('');
+    const navigate = useNavigate();
+
 
   return (
     <section className='create-post'>

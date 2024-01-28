@@ -25,15 +25,13 @@ const Register = () => {
     const registerUser = async (e) => {
         e.preventDefault();
         setError('');
-        // const newUser = await axios.post(`/api/v1/users/register`, userData)
-        // console.log(newUser);
+
         
-        let newUser;
         axios.post(`/api/v1/users/register`, userData)
         .then(response => {
-            newUser =  response?.data
-            // if(!newUser) setError("Unable to register user")
-            // else navigate("/");
+            const newUser =  response?.data
+            if(!newUser) setError("Unable to register user")
+            else navigate("/");
         })
         .catch(error => {
             const index = error.response.data.indexOf("<pre>")
