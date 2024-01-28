@@ -20,7 +20,7 @@ Welcome to Blogify Hub! This is a simple and powerful blogging platform that all
 - MongoDB installed and running
 
 ### Usage
-- **Sign up for an account or log in if you already have one.
-- **Create a new post and start writing your content.
-- **Save and publish your post to make it visible to others.
-- **Explore other posts on the platform, and engage with the community.
+- Sign up for an account or log in if you already have one.
+- Create a new post and start writing your content.
+- Save and publish your post to make it visible to others.
+- Explore other posts on the platform, and engage with the community.
