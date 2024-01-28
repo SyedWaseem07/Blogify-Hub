@@ -23,16 +23,19 @@ const generateAccessAndRefreshToken = async (userId) => {
 // register user
 // unprotected
 // POST :- api/v1/users/register
-const registerUser = asyncHandler( async(req, res) => {
-    const { name, email, password } = req.body;
+const registerUser = asyncHandler( async(req, res, next) => {
+    const { name, email, password, confirmPassword } = req.body;
 
-    if( [name, email, password].some((field) => field.trim() === '') ) 
+    if( [name, email, password, confirmPassword].some((field) => field.trim() === '') ) 
         throw new ApiError(400, "Name, email, password required");
 
     const existingUser = await User.findOne({
         $or: [{ name }, { email }]
     })
 
+    if((password.trim()).length < 6) throw new ApiError(400, "Password must be atleast 6 characters")
+    if(password !== confirmPassword) throw new ApiError(400, "Password and Confirm password must be same")
+    
     if(existingUser) throw new ApiError(409, "User with same credentails already exists");
 
 
