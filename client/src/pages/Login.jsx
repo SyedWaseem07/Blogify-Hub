@@ -19,8 +19,7 @@ const Login = () => {
         setError("");
         axios.post(`/api/v1/users/login`, userData)
         .then(res => {
-            const loggedInUser = res.data;
-            console.log(loggedInUser);
+            const loggedInUser = res.data.data;
             if(!loggedInUser) setError("Unable to register user")
             setCurrentUser(loggedInUser);
             navigate("/");

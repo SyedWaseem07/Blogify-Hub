@@ -18,7 +18,6 @@ import DeletePost from "./pages/DeletePost"
 import CategoryPost from "./pages/CategoryPost"
 import DashBoard from "./pages/DashBoard"
 import UserProvider from "./context/UserContext"
-
 import './index.css'
 
 
@@ -40,13 +39,13 @@ const router = createBrowserRouter([
             {path: "posts/:id/delete", element: <DeletePost />},
             {path: "posts/categories/:category", element: <CategoryPost />},
             {path: "posts/user/:id", element: <AuthorPosts />},
-            {path: "myposts/:id", element: <DashBoard />},
+            {path: "dashboard/:id", element: <DashBoard />},
             {path: "logout", element: <Logout />},
         ]
     }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </>,
 )

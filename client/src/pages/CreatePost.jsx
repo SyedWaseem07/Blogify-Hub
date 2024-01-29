@@ -33,7 +33,12 @@ const CreatePost = () => {
     const [description, setDescription] = useState('');
     const [thumbnail, setThumbnail] = useState('');
     const navigate = useNavigate();
+    const { currentUser } = useContext(UserContext);
 
+    useEffect(() => {
+        const token = currentUser?.refreshToken;
+        if(!token) navigate("/login");
+    }, [])
 
   return (
     <section className='create-post'>

@@ -1,8 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { UserContext } from "../context/UserContext"
 import ReactQuill from 'react-quill'
 import "react-quill/dist/quill.snow.css";
-
+import { useNavigate } from 'react-router-dom';
 const modules = {
     toolbar: [
         [{header: [1, 2, 3, 4, 5, 6,  false]}],
@@ -26,6 +27,13 @@ const EditPost = () => {
     const [category, setCategory] = useState('Uncategorized');
     const [description, setDescription] = useState('');
     const [thumbnail, setThumbnail] = useState('');
+    const navigate = useNavigate();
+    const { currentUser } = useContext(UserContext);
+
+    useEffect(() => {
+        const token = currentUser?.refreshToken;
+        if(!token) navigate("/login");
+    }, [])
 
   return (
     <section className='create-post'>

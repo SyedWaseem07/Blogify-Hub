@@ -464,7 +464,16 @@ footer {
 	font-weight: 300;
 }
 
-
+.loader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 12rem);
+    
+}
+.loaderImg {
+    width: 4rem;
+}
 
 @media screen and (max-width: 800px) {
 	h1 {

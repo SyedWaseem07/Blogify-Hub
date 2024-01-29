@@ -57,7 +57,6 @@ const getPosts = asyncHandler( async (req, res) => {
 const getSinglePost = asyncHandler( async (req, res) => {
     const {id} = req.params
     const post = await Post.findById(id);
-
     if(!post) throw new ApiError(400, "Post not found")
 
     return res.status(200).json(new ApiResponse(200, post, "Post Fetched successfully"));

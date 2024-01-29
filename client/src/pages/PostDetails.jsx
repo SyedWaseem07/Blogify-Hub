@@ -1,37 +1,52 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useContext, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import PostAuthor from '../components/PostAuthor'
-import Thumbnail  from "../images/blog100.jpg"
+import Loader from "../pages/Loader"
+import DeletePost from "../pages/DeletePost"
+import { UserContext } from '../context/UserContext'
+import axios from 'axios'
+
 const PostDetails = () => {
+    const {id} = useParams()
+    const [post, setPost] = useState(null)
+    const [creatorId, setCreatorId] = useState(null);
+    const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const { currentUser } = useContext(UserContext);
+
+    useEffect(() => {
+        setIsLoading(true);
+        axios.get(`/api/v1/posts/${id}`)
+        .then(res => {
+            setIsLoading(false);
+            setPost(res.data.data);
+            setCreatorId(res.data.data.creator);
+        })
+        .catch(err => {
+            setError(error);
+        })
+    }, [])
+
+    if(isLoading) return <Loader />
+
   return (
     <section className="post__detail">
-        <div className="container post-detail__container">
+        {error && <p className='error'>{error}</p>}
+        { !error && post && <div className="container post-detail__container">
             <div className="post__detail-header">
-                <PostAuthor />
-                <div className="post__detail-buttons">
-                    <Link to={`/posts/wermwer/edit`} className='btn sm primary'>Edit</Link>
-                    <Link to={`/posts/wermwer/delete`} className='btn sm danger'>Delete</Link>
-                </div>
+                <PostAuthor creator={post.creator} createdAt={post.createdAt} />
+                {(currentUser?._id === creatorId) && <div className="post__detail-buttons">
+                    <Link to={`/posts/${id}/edit`} className='btn sm primary'>Edit</Link>
+                    <DeletePost postId={id} />
+                </div>}
             </div>
-            <h1>This is the post title</h1>
+            <h1>{post.title}</h1>
             <div className="post__detail-thumbnail">
-                <img src={Thumbnail} alt="" />
+                <img src={post.thumbnail} alt="" />
             </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque tenetur molestiae soluta veritatis minima aliquid et nam! Non illo ipsum sapiente rem minus, magni sequi eaque sint enim eum dolor, animi cumque quod quae praesentium voluptatum consequatur temporibus nemo ex.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, facilis. Amet, iusto nulla, officiis placeat soluta maxime sed esse error iure dolor autem. Voluptatem ea, distinctio numquam sapiente eveniet suscipit porro qui laboriosam sint aperiam minima in, veritatis architecto nostrum fugiat. At non itaque, dolores, qui deserunt corrupti in sint, totam pariatur minima rerum autem!
-            </p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur possimus. Quod officia quo maxime reiciendis temporibus, modi iusto consequuntur libero veritatis officiis tempore earum magni minus assumenda ullam nobis odit eaque quaerat alias omnis nulla eos distinctio excepturi! Minima voluptates illo libero dolorum obcaecati eius non laboriosam, delectus quidem veniam doloribus, rem maxime. Fugit commodi, incidunt eligendi sequi, corrupti ratione facilis consequatur qui nisi dignissimos magnam nihil necessitatibus labore sit! Vitae quis iste temporibus non quia ex, explicabo dignissimos est reprehenderit molestias molestiae tenetur sequi possimus officiis aut incidunt. A corrupti rem id dolore assumenda atque consequuntur debitis doloremque commodi ut velit omnis officia veritatis sed, illum laudantium totam.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur possimus. Quod officia quo maxime reiciendis temporibus, modi iusto consequuntur libero veritatis officiis tempore earum magni minus assumenda ullam nobis odit eaque quaerat alias omnis nulla eos distinctio excepturi! Minima voluptates illo libero dolorum obcaecati eius non laboriosam, delectus quidem veniam doloribus, rem maxime. Fugit commodi, incidunt eligendi sequi, corrupti ratione facilis consequatur qui nisi dignissimos magnam nihil necessitatibus labore sit! Vitae quis iste temporibus non quia ex, explicabo dignissimos est reprehenderit molestias molestiae tenetur sequi possimus officiis aut incidunt. A corrupti rem id dolore assumenda atque consequuntur debitis doloremque commodi ut velit omnis officia veritatis sed, illum laudantium totam.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur possimus. Quod officia quo maxime reiciendis temporibus, modi iusto consequuntur libero veritatis officiis tempore earum magni minus assumenda ullam nobis odit eaque quaerat alias omnis nulla eos distinctio excepturi! Minima voluptates illo libero dolorum obcaecati eius non laboriosam, delectus quidem veniam doloribus, rem maxime. Fugit commodi, incidunt eligendi sequi, corrupti ratione facilis consequatur qui nisi dignissimos magnam nihil necessitatibus labore sit! Vitae quis iste temporibus non quia ex, explicabo dignissimos est reprehenderit molestias molestiae tenetur sequi possimus officiis aut incidunt. A corrupti rem id dolore assumenda atque consequuntur debitis doloremque commodi ut velit omnis officia veritatis sed, illum laudantium totam.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur possimus. Quod officia quo maxime reiciendis temporibus, modi iusto consequuntur libero veritatis officiis tempore earum magni minus assumenda ullam nobis odit eaque quaerat alias omnis nulla eos distinctio excepturi! Minima voluptates illo libero dolorum obcaecati eius non laboriosam, delectus quidem veniam doloribus, rem maxime. Fugit commodi, incidunt eligendi sequi, corrupti ratione facilis consequatur qui nisi dignissimos magnam nihil necessitatibus labore sit! Vitae quis iste temporibus non quia ex, explicabo dignissimos est reprehenderit molestias molestiae tenetur sequi possimus officiis aut incidunt. A corrupti rem id dolore assumenda atque consequuntur debitis doloremque commodi ut velit omnis officia veritatis sed, illum laudantium totam.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur possimus. Quod officia quo maxime reiciendis temporibus, modi iusto consequuntur libero veritatis officiis tempore earum magni minus assumenda ullam nobis odit eaque quaerat alias omnis nulla eos distinctio excepturi! Minima voluptates illo libero dolorum obcaecati eius non laboriosam, delectus quidem veniam doloribus, rem maxime. Fugit commodi, incidunt eligendi sequi, corrupti ratione facilis consequatur qui nisi dignissimos magnam nihil necessitatibus labore sit! Vitae quis iste temporibus non quia ex, explicabo dignissimos est reprehenderit molestias molestiae tenetur sequi possimus officiis aut incidunt. A corrupti rem id dolore assumenda atque consequuntur debitis doloremque commodi ut velit omnis officia veritatis sed, illum laudantium totam.</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur possimus. Quod officia quo maxime reiciendis temporibus, modi iusto consequuntur libero veritatis officiis tempore earum magni minus assumenda ullam nobis odit eaque quaerat alias omnis nulla eos distinctio excepturi! Minima voluptates illo libero dolorum obcaecati eius non laboriosam, delectus quidem veniam doloribus, rem maxime. Fugit commodi, incidunt eligendi sequi, corrupti ratione facilis consequatur qui nisi dignissimos magnam nihil necessitatibus labore sit! Vitae quis iste temporibus non quia ex, explicabo dignissimos est reprehenderit molestias molestiae tenetur sequi possimus officiis aut incidunt. A corrupti rem id dolore assumenda atque consequuntur debitis doloremque commodi ut velit omnis officia veritatis sed, illum laudantium totam.</p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est saepe provident, eveniet officia hic amet eligendi perspiciatis eos inventore velit voluptas quidem, repellendus maxime ducimus.
-            </p>
+            <p>{post.description}</p>
         </div>
+        }
     </section>
   )
 }

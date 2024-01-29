@@ -21,7 +21,7 @@ router.route("/login").post(loginUser);
 
 router.route("/logout").post(verifyJWT, logoutUser);
 
-router.route("/:id").get(verifyJWT, getUserProfile);
+router.route("/:id").get(getUserProfile);
 
 router.route("/change-avatar").post(verifyJWT, upload.single("avatar"), changeAvatar);
 
