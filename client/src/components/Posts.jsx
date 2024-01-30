@@ -7,17 +7,16 @@ import Loader from "../pages/Loader"
 import axios from "axios"
 
 const Posts = () => {
-    const [allPosts, setallPosts] = useState(Dummy_posts);
-    const [isLoading, setIsLodaing] = useState(false);
+    const [allPosts, setAllPosts] = useState(Dummy_posts);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchPosts =  () => {
-            setIsLodaing(true)
+            setIsLoading(true)
             axios.get(`/api/v1/posts/`)
             .then(res => {
-                setIsLodaing(false);
-                console.log(res.data.data);
-                setallPosts(res?.data.data);
+                setIsLoading(false);
+                setAllPosts(res?.data.data);
             })
             .catch(err => {})
         }

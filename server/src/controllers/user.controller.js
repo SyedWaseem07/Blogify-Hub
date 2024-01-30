@@ -155,7 +155,7 @@ const changeAvatar = asyncHandler( async(req, res) => {
 // POST :- api/v1/users/edit-profile
 const editUserProfile = asyncHandler( async(req, res) => {
     const { name, email, currentPassword, newPassword, confirmNewPassword } = req.body;
-    
+    console.log(name, email, currentPassword, newPassword, confirmNewPassword);
     if(!name || !email || !currentPassword || !newPassword || !confirmNewPassword)
         throw new ApiError(400, "All details required");
 
@@ -181,7 +181,7 @@ const editUserProfile = asyncHandler( async(req, res) => {
 
     await user.save();
 
-    const updatedUser = await User.findById(user._id).select("-password -refreshToken");
+    const updatedUser = await User.findById(user._id).select("-password");
 
     return res.status(200).json(new ApiResponse(200, updatedUser, "User Profile Updated Successfully"));
 

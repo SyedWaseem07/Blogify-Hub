@@ -44,7 +44,7 @@ const PostDetails = () => {
             <div className="post__detail-thumbnail">
                 <img src={post.thumbnail} alt="" />
             </div>
-            <p>{post.description}</p>
+            <p dangerouslySetInnerHTML={{__html: post.description}} />
         </div>
         }
     </section>

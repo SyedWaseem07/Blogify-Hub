@@ -1,32 +1,86 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FaEdit, FaCheck } from'react-icons/fa'
-import Avatar from '../images/avatar11.jpg'
 import { useState, useEffect, useContext } from 'react'
 import { UserContext } from "../context/UserContext"
-
+import axios from "axios"
 
 const UserProfile = () => {
-    const [avatar, setAvatar] = useState(Avatar)
+    const [avatar, setAvatar] = useState()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [currentPassword, setCurrentPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const navigate = useNavigate();
-    const { currentUser } = useContext(UserContext);
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+    const [isAvatarTouched, setIsAvatarTouched] = useState(false);
+    const [error, setError] = useState();
+    const {id} = useParams()
+
 
     useEffect(() => {
         const token = currentUser?.refreshToken;
         if(!token) navigate("/login");
+
+        axios.get(`/api/v1/users/${id}`)
+        .then(res => {
+            setAvatar(res.data.data.avatar);
+            setName(res.data.data.name);
+            setEmail(res.data.data.email);
+        })
     }, [])
     
+
+    const changeAvatarHandler = (e) => {
+        e.preventDefault();
+        setIsAvatarTouched(false);
+        const profileData = new FormData();
+        profileData.set('avatar', avatar)
+
+        axios.post(`/api/v1/users/change-avatar`, profileData)
+        .then(res => {
+            setAvatar(res.data.data.avatar);
+        })
+        .catch(err => {
+            const index = err.response.data.indexOf("<pre>");
+            const Lastindex = err.response.data.indexOf("</pre>");
+            const errMsg = err.response.data.substring(index+5, Lastindex);
+            setError(errMsg);
+        })
+        
+    }
+
+    const editProfileHandler = (e) => {
+        e.preventDefault()
+        const data = new FormData();
+        data.set('name', name)
+        data.set('email', email)
+        data.set('currentPassword', currentPassword)
+        data.set('newPassword', newPassword)
+        data.set('confirmNewPassword', confirmNewPassword)
+        console.log(data)
+        axios.post(`/api/v1/users/edit-profile`, data)
+        .then(res => {
+            setCurrentUser(res.data.data);
+            console.log(currentUser);
+        })
+        .catch(err => {
+            const index = err.response.data.indexOf("<pre>");
+            const Lastindex = err.response.data.indexOf("</pre>");
+            const errMsg = err.response.data.substring(index+5, Lastindex);
+            setError(errMsg);
+        })
+    }
+
+    // 
   return (
     <section className="profile">
         <div className="container profile__container">
-            <Link to={`/myposts/abcd`} className='btn'>My Posts</Link>
+            <Link to={`/dashboard/${currentUser._id}`} className='btn'>My Posts</Link>
             <div className="profile__details">
                 <div className="avatar__wrapper">
+                    
                     <div className="profile__avatar">
                         <img src={avatar} alt="profile picture" />
                     </div>
@@ -34,16 +88,18 @@ const UserProfile = () => {
                         <input type="file" name="avatar" id="avatar" accept='png, jpg, jpeg'
                         onChange={(e) => setAvatar(e.target.files[0])}
                         />
-                        <label htmlFor="avatar"><FaEdit /></label>
+                        <label htmlFor="avatar" onClick={() => setIsAvatarTouched(true)}><FaEdit /></label>
                     </form>
-                    <button className='profile__avatar-btn'><FaCheck /></button>
+                    {isAvatarTouched && <button className='profile__avatar-btn'
+                    onClick={changeAvatarHandler}
+                    ><FaCheck /></button>}
                 </div>
-                <h1>Ernest Achiever</h1>
+                <h1>{currentUser.name}</h1>
 
-                <form className="form profile__form">
-                    <p className="form__error-message">
-                        This is an error message
-                    </p>
+                <form className="form profile__form" onSubmit={editProfileHandler}>
+                   {error &&  <p className="form__error-message">
+                        {error}
+                    </p>}
 
                     <input type="text" placeholder='Full Name' value={name} onChange={e => setName(e.target.value)}/>
 
@@ -55,7 +111,8 @@ const UserProfile = () => {
 
                     <input type="password" placeholder='Confirm New Password' value={confirmNewPassword} onChange={e => setConfirmNewPassword(e.target.value)}/>
 
-                    <button type='submit' className='btn primary'>Update Details</button>
+                    <button type='submit' className='btn primary'
+                    >Update Details</button>
                 </form>
             </div>
         </div>

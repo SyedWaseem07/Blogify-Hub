@@ -40,7 +40,7 @@ const createPost = asyncHandler( async (req, res) => {
 
     if(!post) throw new ApiError(500, "Error occurred while creating post")
 
-    return res.status(200).json(new ApiResponse(200, post, "Post created successfully"));
+    return res.status(200).json(new ApiResponse(201, post, "Post created successfully"));
 } )
 
 
@@ -105,7 +105,7 @@ const editPost = asyncHandler( async (req, res) => {
                 title,
                 category,
                 description,
-                thumbnail: thumbnail.url
+                thumbnail: thumbnail?.url
             }
         },
         { new: true }

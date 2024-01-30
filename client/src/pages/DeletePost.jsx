@@ -1,19 +1,39 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from "../context/UserContext"
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import axios from "axios"
+import Loader from './Loader';
+
+
 const DeletePost = ({postId}) => {
     const [posts, setPosts] = useState()
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const { currentUser } = useContext(UserContext);
-
+    const location = useLocation();
     useEffect(() => {
         const token = currentUser?.refreshToken;
         if(!token) navigate("/login");
     }, [])
 
+    const deletePostHandler = (postId) => {
+        setIsLoading(true);
+        axios.delete(`/api/v1/posts/${postId}`)
+        .then(res => {
+            if(res.data.statusCode === 200) {
+                if(location.pathname === `/dashboard/${currentUser?._id}`) navigate(0)
+                else navigate("/")
+            }
+            setIsLoading(false);
+        })
+        .catch(err => {})
+    }
+
   return (
-    <Link to={`/posts/${postId}/delete`} className='btn sm danger'>Delete</Link>
+    <Link className='btn sm danger'
+    onClick={() => deletePostHandler(postId)}
+    >Delete</Link>
   )
 }
 

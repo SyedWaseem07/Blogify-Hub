@@ -18,7 +18,7 @@ const PostAuthor = ({creator, createdAt}) => {
     })
 
   return (
-    <Link to={`/posts/user/sdfsgdv`} className="post__author">
+    <Link to={`/posts/user/${creator}`} className="post__author">
         <div className="post__author-avatar">
             <img src={author.avatar} alt="" />
         </div>

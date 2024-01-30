@@ -1,28 +1,36 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Loader from "../pages/Loader"
+import { useParams } from 'react-router-dom'
+import axios from "axios"
 
-import Avatar1 from '../images/avatar1.jpg'
-import Avatar2 from '../images/avatar2.jpg'
-import Avatar3 from '../images/avatar3.jpg'
-import Avatar4 from '../images/avatar4.jpg'
-import Avatar5 from '../images/avatar5.jpg'
-
-const authorsData = [
-    {id:1, avatar: Avatar1, name: "Ernest Achiever", posts: 3},
-    {id:2, avatar: Avatar2, name: "Jane Doe", posts: 5},
-    {id:3, avatar: Avatar3, name: "Dramani Mahama", posts: 0},
-    {id:4, avatar: Avatar4, name: "Nana Addo", posts: 1},
-    {id:5, avatar: Avatar5, name: "Hajia Bintu", posts: 2},
-]
 
 const Authors = () => {
-    const [authors, setAuthors] = useState(authorsData);
+    const [authors, setAuthors] = useState([]);
+    const [isLoading, setIsLoading] = useState(false)
+
+    useEffect(() => {
+        setIsLoading(true);
+        const getAuthors = () => {
+            axios.get(`/api/v1/users`)
+            .then(res => {
+                setIsLoading(false);
+                setAuthors(res.data.data);
+            })
+            .catch(err => {})
+            setIsLoading(false);
+        }  
+
+        getAuthors();
+    })
+
+    if(isLoading) return <Loader />
   return (
     <section>
         {authors.length > 0 ? <div className="container authors__container">
             {
-               authors.map(({id, avatar, name, posts}) => <Link key={id} to={`/posts/users/${id}`} className="author">
+               authors.map(({_id, avatar, name, posts}) => <Link key={_id} to={`/posts/user/${_id}`} className="author">
                 <div>
                     <img src={avatar} alt="author avatar" className="author__avatar"/>
                 </div> 
