@@ -12,6 +12,8 @@ Welcome to Blogify Hub! This is a simple and powerful blogging platform that all
 
 - **Responsive Design:** Enjoy a seamless experience across devices - desktop, tablet, and mobile.
 
+## API Documentation
+- **Link:** https://documenter.getpostman.com/view/32463080/2s9Yytg1Ae
 ## Getting Started
 
 ### Prerequisites
