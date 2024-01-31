@@ -1,4 +1,4 @@
-# Blogify Hub - Awesome Blog App
+# Blogify Hub - Where Ideas Thrive
 
 Welcome to Blogify Hub! This is a simple and powerful blogging platform that allows you to create and share your thoughts with the world.
 
