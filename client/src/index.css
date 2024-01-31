@@ -39,6 +39,7 @@ body {
     line-height: 1.6;
     color: var(--color-gray-700);
 }
+
 a {
     text-decoration: none;
     color: var(--color-gray-700);
@@ -53,30 +54,37 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
 }
 
-h1{
+h1 {
     font-size: 2.2rem;
 }
-h2{
+
+h2 {
     font-size: 1.9rem;
 }
-h3{
+
+h3 {
     font-size: 1.3rem;
     line-height: 1.25;
 }
-h4{
+
+h4 {
     font-size: 1.1rem;
 }
-h5{
+
+h5 {
     line-height: 1.4;
 }
+
 img {
     display: block;
     width: 100%;
     object-fit: cover;
 }
+
 section {
     margin-top: 6rem;
 }
+
 .container {
     width: var(--container-width-lg);
     margin-inline: auto;
@@ -155,7 +163,7 @@ nav {
 }
 
 .nav__logo {
-    width: 4rem;
+    width: 9rem;
     display: block;
 }
 
@@ -331,9 +339,11 @@ input, select, textarea {
 .author__info {
 	align-items: center;
 }
+
 .author__info p{
 	margin-top: 1rem;
 }
+
 /*   ********************Profile********************        */ 
 .profile__container {
 	display: grid;

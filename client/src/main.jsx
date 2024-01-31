@@ -2,21 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Layout from"./components/Layout"
-import ErrorPage from "./pages/ErrorPage"
 
-import Home from "./pages/Home"
-import PostDetails from "./pages/PostDetails"
-import Register from "./pages/Register"
-import Login from "./pages/Login"
-import Logout from "./pages/Logout"
-import UserProfile from "./pages/UserProfile"
-import Authors from "./pages/Authors"
-import AuthorPosts from "./pages/AuthorPosts"
-import CreatePost from "./pages/CreatePost"
-import EditPost from "./pages/EditPost"
-import DeletePost from "./pages/DeletePost"
-import CategoryPost from "./pages/CategoryPost"
-import DashBoard from "./pages/DashBoard"
+import {
+    AuthorPosts, Authors,
+    CategoryPost, CreatePost, DashBoard,
+    DeletePost, EditPost, ErrorPage,
+    Home, Loader, Login, 
+    Logout, PostDetails, Register,
+    UserProfile
+} from "./pages/index"
+
 import UserProvider from "./context/UserContext"
 import './index.css'
 
