@@ -1,0 +1,1388 @@
+{
+	"info": {
+		"_postman_id": "8a8e3498-677f-4808-a5d2-b05bce7d7ac7",
+		"name": "Blogify Hub",
+		"description": "Documentation of api used in simple and awesome blog app named Blogify Hub - Where Ideas Thrive",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32463080"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Get All Authors API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myServer}}users/",
+							"host": [
+								"{{myServer}}users"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Authors API",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1311"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"51f-lZWQG7ugP4oE5UGE9suNt5zt5pY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:39:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": [\n        {\n            \"_id\": \"65ba0c74b2ec3cd1a43cc186\",\n            \"name\": \"j.k. rowling \",\n            \"email\": \"jkrowling@gmail.com\",\n            \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706691701/xatsmglmnkpdetzsmavs.jpg\",\n            \"posts\": 5,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0ebe1a54d96d06b358ce\",\n            \"name\": \"charles dickens\",\n            \"email\": \"cdickens@gmail.com\",\n            \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692343/lofjgrh6cggdoo7ar6pi.jpg\",\n            \"posts\": 5,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba10311a54d96d06b3605a\",\n            \"name\": \"arthur c. clarke \",\n            \"email\": \"acclarke@gmail.com\",\n            \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692699/ytrd6wm9qlxiqbzxzbq1.jpg\",\n            \"posts\": 2,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba10fa1a54d96d06b36a12\",\n            \"name\": \"f. scott fitzgerald\",\n            \"email\": \"fsfitzgerald@gmail.com\",\n            \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692889/t5gahow3uybcqfwwshcq.jpg\",\n            \"posts\": 2,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba11af1a54d96d06b37204\",\n            \"name\": \"mark twain\",\n            \"email\": \"mtwain@gmail.com\",\n            \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706693134/ge6kiiwlxnrf3g4lnr9w.jpg\",\n            \"posts\": 1,\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba127c1a54d96d06b382d4\",\n            \"name\": \"agatha christie \",\n            \"email\": \"achristie@gmail.com\",\n            \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706693478/ytgrgawgfi9qmvdftivz.jpg\",\n            \"posts\": 0,\n            \"__v\": 0\n        }\n    ],\n    \"message\": \"Authors fetched successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Register User API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "J.K. Rowling ",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jkrowling@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "jkr123456",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1eec0171-0244-4fa0-9d2a-ba1a6bb16cfd"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "jkr123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{myServer}}users/register",
+							"host": [
+								"{{myServer}}users"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register User API",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "J.K. Rowling ",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "jkrowling@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "jkr123456",
+											"type": "text"
+										},
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "postman-cloud:///1eec0171-0244-4fa0-9d2a-ba1a6bb16cfd"
+										},
+										{
+											"key": "confirmPassword",
+											"value": "jkr123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "284"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11c-7q9toPg6VNOsBL3D5N0VEIOwr44\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:01:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"_id\": \"65ba0c74b2ec3cd1a43cc186\",\n        \"name\": \"j.k. rowling \",\n        \"email\": \"jkrowling@gmail.com\",\n        \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706691701/xatsmglmnkpdetzsmavs.jpg\",\n        \"posts\": 0,\n        \"__v\": 0\n    },\n    \"message\": \"User Registered successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"jkrowling@gmail.com\",\r\n    \"password\": \"jkr123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myServer}}users/login",
+							"host": [
+								"{{myServer}}users"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login User API",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"jkrowling@gmail.com\",\r\n    \"password\": \"jkr123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWJhMGM3NGIyZWMzY2QxYTQzY2MxODYiLCJlbWFpbCI6Imprcm93bGluZ0BnbWFpbC5jb20iLCJuYW1lIjoiai5rLiByb3dsaW5nICIsInBvc3RzIjowLCJpYXQiOjE3MDY2OTE3NDgsImV4cCI6MTcwNjc3ODE0OH0.LFF-FpwNYImEFislyE9MjGZ_-VG56-9GPibjK8dwN0Q; Path=/; HttpOnly; Secure"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWJhMGM3NGIyZWMzY2QxYTQzY2MxODYiLCJpYXQiOjE3MDY2OTE3NDgsImV4cCI6MTcwNzU1NTc0OH0.aUMlxAHQsJWX8LMZXZE4dbPLJONinzFzuifGN1njPIw; Path=/; HttpOnly; Secure"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "473"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d9-qagB7g4uh4/zmnTo8crEPz8HxwQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:02:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"_id\": \"65ba0c74b2ec3cd1a43cc186\",\n        \"name\": \"j.k. rowling \",\n        \"email\": \"jkrowling@gmail.com\",\n        \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706691701/xatsmglmnkpdetzsmavs.jpg\",\n        \"posts\": 0,\n        \"__v\": 0,\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWJhMGM3NGIyZWMzY2QxYTQzY2MxODYiLCJpYXQiOjE3MDY2OTE3NDgsImV4cCI6MTcwNzU1NTc0OH0.aUMlxAHQsJWX8LMZXZE4dbPLJONinzFzuifGN1njPIw\"\n    },\n    \"message\": \"User logged in successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout User API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{myServer}}users/logout",
+							"host": [
+								"{{myServer}}users"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout User API",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/logout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "accessToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; Secure"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; Secure"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"54-cRDQCqHHs/PqDsd/ZqsWF4q4TZs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:26:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {},\n    \"message\": \"User logged out successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Change User Avatar API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1eec01b0-8637-45d0-919d-5c9cb2dd5c03"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{myServer}}users/change-avatar",
+							"host": [
+								"{{myServer}}users"
+							],
+							"path": [
+								"change-avatar"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Change User Avatar API",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "postman-cloud:///1eec01b0-8637-45d0-919d-5c9cb2dd5c03"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/change-avatar",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"change-avatar"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "287"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11f-6QFyeO0Y7yN6z7vEv7oyGSDAgsc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:31:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"_id\": \"65ba127c1a54d96d06b382d4\",\n        \"name\": \"emily dickinson \",\n        \"email\": \"edickinson@gmail.com\",\n        \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706693478/ytgrgawgfi9qmvdftivz.jpg\",\n        \"posts\": 0,\n        \"__v\": 0\n    },\n    \"message\": \"Avatar changed successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Profile API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Agatha Christie \",\r\n    \"email\": \"achristie@gmail.com\",\r\n    \"currentPassword\": \"ed123456\",\r\n    \"newPassword\": \"ac123456\",\r\n    \"confirmNewPassword\": \"ac123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{myServer}}users/edit-profile",
+							"host": [
+								"{{myServer}}users"
+							],
+							"path": [
+								"edit-profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User Profile API",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Agatha Christie \",\r\n    \"email\": \"achristie@gmail.com\",\r\n    \"currentPassword\": \"ed123456\",\r\n    \"newPassword\": \"ac123456\",\r\n    \"confirmNewPassword\": \"ac123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/edit-profile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"edit-profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "482"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e2-E0rsiu4JVk3+gcru4j0DF9P2VJc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:32:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"_id\": \"65ba127c1a54d96d06b382d4\",\n        \"name\": \"agatha christie \",\n        \"email\": \"achristie@gmail.com\",\n        \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706693478/ytgrgawgfi9qmvdftivz.jpg\",\n        \"posts\": 0,\n        \"__v\": 0,\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWJhMTI3YzFhNTRkOTZkMDZiMzgyZDQiLCJpYXQiOjE3MDY2OTM0MzksImV4cCI6MTcwNzU1NzQzOX0.jgdZ083DN0Ytps7FJtUsAWFRAu1W9bDezQwse9mTfEg\"\n    },\n    \"message\": \"User Profile Updated Successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User Profile API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myServer}}users/65ba0c74b2ec3cd1a43cc186",
+							"host": [
+								"{{myServer}}users"
+							],
+							"path": [
+								"65ba0c74b2ec3cd1a43cc186"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User Profile API",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/users/65ba0c74b2ec3cd1a43cc186",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										"65ba0c74b2ec3cd1a43cc186"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "289"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"121-Xd4VwK1QpgB8a2iTnuztYYiq1Cs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:39:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"_id\": \"65ba0c74b2ec3cd1a43cc186\",\n        \"name\": \"j.k. rowling \",\n        \"email\": \"jkrowling@gmail.com\",\n        \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706691701/xatsmglmnkpdetzsmavs.jpg\",\n        \"posts\": 5,\n        \"__v\": 0\n    },\n    \"message\": \"User profile fetched successfully\",\n    \"success\": true\n}"
+						}
+					]
+				}
+			],
+			"description": "Documentation of all api related to user"
+		},
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "Get All Post API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myServer}}posts/",
+							"host": [
+								"{{myServer}}posts"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Post API",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/posts/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24678"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6066-VCJiFwWvatTdk9punCKxwW9h3f0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:40:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": [\n        {\n            \"_id\": \"65ba0d31b2ec3cd1a43cc18f\",\n            \"title\": \"Description of Harry Potter series\",\n            \"category\": \"Entertainment\",\n            \"description\": \"What is Lorem Ipsum?\\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\\n\\nWhy do we use it?\\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706691890/xwewzq4zg1zzxd7xvgbf.jpg\",\n            \"creator\": \"65ba0c74b2ec3cd1a43cc186\",\n            \"createdAt\": \"2024-01-31T09:04:49.921Z\",\n            \"updatedAt\": \"2024-01-31T09:04:49.921Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0de61a54d96d06b35761\",\n            \"title\": \"Wanderlust Diaries: Tales from the Road Less Traveled\",\n            \"category\": \"Entertainment\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692071/xcyfrrwzr6igzbmxqhyv.jpg\",\n            \"creator\": \"65ba0c74b2ec3cd1a43cc186\",\n            \"createdAt\": \"2024-01-31T09:07:50.608Z\",\n            \"updatedAt\": \"2024-01-31T09:07:50.608Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0e271a54d96d06b357b9\",\n            \"title\": \"Byte Bites: Navigating the Digital World\",\n            \"category\": \"Education\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692135/am04o3irpnizl96ubvss.jpg\",\n            \"creator\": \"65ba0c74b2ec3cd1a43cc186\",\n            \"createdAt\": \"2024-01-31T09:08:55.160Z\",\n            \"updatedAt\": \"2024-01-31T09:08:55.160Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0e511a54d96d06b35807\",\n            \"title\": \"Mindful Musings: Embracing the Present Moment\",\n            \"category\": \"Entertainment\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692177/xj996o4ekjiuuocunmeb.jpg\",\n            \"creator\": \"65ba0c74b2ec3cd1a43cc186\",\n            \"createdAt\": \"2024-01-31T09:09:37.423Z\",\n            \"updatedAt\": \"2024-01-31T09:09:37.423Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0e7b1a54d96d06b35857\",\n            \"title\": \"Urban Jungle Chronicles: Exploring Cityscapes\",\n            \"category\": \"Art\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692219/s8anv3emryalakbwbhfc.jpg\",\n            \"creator\": \"65ba0c74b2ec3cd1a43cc186\",\n            \"createdAt\": \"2024-01-31T09:10:19.273Z\",\n            \"updatedAt\": \"2024-01-31T09:10:19.273Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0f251a54d96d06b359a5\",\n            \"title\": \"A Tale of Two Cities, Great Expectations\",\n            \"category\": \"Education\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692390/kyycfpolfuhrgh8mkxms.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:13:09.413Z\",\n            \"updatedAt\": \"2024-01-31T09:13:09.413Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0f431a54d96d06b359db\",\n            \"title\": \"Tech Tonic: Sipping on the Latest in Technology\",\n            \"category\": \"Education\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692419/uk40mtte7svfvx4nowxy.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:13:39.212Z\",\n            \"updatedAt\": \"2024-01-31T09:13:39.212Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0f8b1a54d96d06b35c9d\",\n            \"title\": \"Thread Tales: Fashioned by Life, Styled by You\",\n            \"category\": \"Art\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692492/du71ryqlqwtpkf2fogrv.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:14:51.616Z\",\n            \"updatedAt\": \"2024-01-31T09:14:51.616Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0fbd1a54d96d06b35db9\",\n            \"title\": \"EcoEcho: Living Green in a Modern World\",\n            \"category\": \"Business\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692542/mlv6cniscc1303gk8uar.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:15:41.836Z\",\n            \"updatedAt\": \"2024-01-31T09:15:41.836Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0ff81a54d96d06b35fa7\",\n            \"title\": \"Spark & Spur: Igniting Creativity and Innovation\",\n            \"category\": \"Investment\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692600/lp0sz0pxrsf5y8lzjbcq.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:16:40.549Z\",\n            \"updatedAt\": \"2024-01-31T09:16:40.549Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba107d1a54d96d06b3615a\",\n            \"title\": \"Brewed Bliss: Savoring the Art of Coffee Culture\",\n            \"category\": \"Weather\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692733/smpdrzdiifpjkcbrckyz.jpg\",\n            \"creator\": \"65ba10311a54d96d06b3605a\",\n            \"createdAt\": \"2024-01-31T09:18:53.230Z\",\n            \"updatedAt\": \"2024-01-31T09:18:53.230Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba10a31a54d96d06b3624f\",\n            \"title\": \"Lens Luxe: Capturing Life's Moments in Pixels\",\n            \"category\": \"Uncategorized\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692771/jnzbaslupjehy7wgh9g4.jpg\",\n            \"creator\": \"65ba10311a54d96d06b3605a\",\n            \"createdAt\": \"2024-01-31T09:19:31.214Z\",\n            \"updatedAt\": \"2024-01-31T09:19:31.214Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba11371a54d96d06b36ac8\",\n            \"title\": \"Pixel Ponderings: Thoughts in High-Definition\",\n            \"category\": \"Investment\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692920/o5t3jdscblebffwmlbhr.jpg\",\n            \"creator\": \"65ba10fa1a54d96d06b36a12\",\n            \"createdAt\": \"2024-01-31T09:21:59.899Z\",\n            \"updatedAt\": \"2024-01-31T09:21:59.899Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba115b1a54d96d06b36b4a\",\n            \"title\": \"Serendipity Sojourn: Embracing Life's Unexpected Journeys\",\n            \"category\": \"Uncategorized\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692956/eprm1vc4jrhmfpldjkpt.jpg\",\n            \"creator\": \"65ba10fa1a54d96d06b36a12\",\n            \"createdAt\": \"2024-01-31T09:22:35.947Z\",\n            \"updatedAt\": \"2024-01-31T09:22:35.947Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba11e21a54d96d06b372ea\",\n            \"title\": \"Trail Tales: Hiking Through Nature's Stories\",\n            \"category\": \"Weather\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706693091/wubkyuwhbbrjs1o2h2lc.jpg\",\n            \"creator\": \"65ba11af1a54d96d06b37204\",\n            \"createdAt\": \"2024-01-31T09:24:50.750Z\",\n            \"updatedAt\": \"2024-01-31T09:24:50.750Z\",\n            \"__v\": 0\n        }\n    ],\n    \"message\": \"All post fetched successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Post API",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Balance Beam: Navigating Work, Life, and Everything Between",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Entertainment",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "What is Lorem Ipsum?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nWhy do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "postman-cloud:///1eec01cd-2321-4960-9919-6c25b2aa72eb"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{myServer}}posts/",
+							"host": [
+								"{{myServer}}posts"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Post API",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Balance Beam: Navigating Work, Life, and Everything Between",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "Entertainment",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "What is Lorem Ipsum?\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nWhy do we use it?\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+											"type": "text"
+										},
+										{
+											"key": "thumbnail",
+											"type": "file",
+											"src": "postman-cloud:///1eec01cd-2321-4960-9919-6c25b2aa72eb"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/posts/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"posts",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1858"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"742-V+sD05EEzWZA7aw0b2Yp/COkePQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:42:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"data\": {\n        \"title\": \"Balance Beam: Navigating Work, Life, and Everything Between\",\n        \"category\": \"Entertainment\",\n        \"description\": \"What is Lorem Ipsum?\\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\\n\\nWhy do we use it?\\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n        \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706694124/s0sjij0skhukdviir0ja.jpg\",\n        \"creator\": {\n            \"_id\": \"65ba0c74b2ec3cd1a43cc186\",\n            \"name\": \"j.k. rowling \",\n            \"email\": \"jkrowling@gmail.com\",\n            \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706691701/xatsmglmnkpdetzsmavs.jpg\",\n            \"posts\": 6,\n            \"__v\": 0\n        },\n        \"_id\": \"65ba15eb1a54d96d06b3d09e\",\n        \"createdAt\": \"2024-01-31T09:42:03.808Z\",\n        \"updatedAt\": \"2024-01-31T09:42:03.808Z\",\n        \"__v\": 0\n    },\n    \"message\": \"Post created successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Single Post API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myServer}}posts/65ba0de61a54d96d06b35761",
+							"host": [
+								"{{myServer}}posts"
+							],
+							"path": [
+								"65ba0de61a54d96d06b35761"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Single Post API",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{myServer}}posts/65ba0de61a54d96d06b35761",
+									"host": [
+										"{{myServer}}posts"
+									],
+									"path": [
+										"65ba0de61a54d96d06b35761"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1733"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6c5-hqdWFtyi8s2DmAE51WHb66P1riY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:42:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"_id\": \"65ba0de61a54d96d06b35761\",\n        \"title\": \"Wanderlust Diaries: Tales from the Road Less Traveled\",\n        \"category\": \"Entertainment\",\n        \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n        \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692071/xcyfrrwzr6igzbmxqhyv.jpg\",\n        \"creator\": \"65ba0c74b2ec3cd1a43cc186\",\n        \"createdAt\": \"2024-01-31T09:07:50.608Z\",\n        \"updatedAt\": \"2024-01-31T09:07:50.608Z\",\n        \"__v\": 0\n    },\n    \"message\": \"Post Fetched successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Single Post API",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Vintage Vogue Vault: Rediscovering Timeless Fashion",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is an edited post\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "Art",
+									"type": "text"
+								},
+								{
+									"key": "thumbnail",
+									"type": "file",
+									"src": "postman-cloud:///1eebd344-efbf-4bf0-9c2f-93deb6bae2d3"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{myServer}}posts/65ba0de61a54d96d06b35761",
+							"host": [
+								"{{myServer}}posts"
+							],
+							"path": [
+								"65ba0de61a54d96d06b35761"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit Single Post API",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Vintage Vogue Vault: Rediscovering Timeless Fashion",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "This is an edited post\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "Art",
+											"type": "text"
+										},
+										{
+											"key": "thumbnail",
+											"type": "file",
+											"src": "postman-cloud:///1eebd344-efbf-4bf0-9c2f-93deb6bae2d3"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{myServer}}posts/65ba0de61a54d96d06b35761",
+									"host": [
+										"{{myServer}}posts"
+									],
+									"path": [
+										"65ba0de61a54d96d06b35761"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1029"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"405-pt+uG6PXV0OKw3ep+MokYiy/O1k\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:44:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"_id\": \"65ba0de61a54d96d06b35761\",\n        \"title\": \"Vintage Vogue Vault: Rediscovering Timeless Fashion\",\n        \"category\": \"Art\",\n        \"description\": \"This is an edited post\\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\n        \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706694294/mfbjo76o1jmdfpyfizvu.jpg\",\n        \"creator\": \"65ba0c74b2ec3cd1a43cc186\",\n        \"createdAt\": \"2024-01-31T09:07:50.608Z\",\n        \"updatedAt\": \"2024-01-31T09:44:53.816Z\",\n        \"__v\": 0\n    },\n    \"message\": \"Post edited successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Single Post API",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{myServer}}posts/65ba0e271a54d96d06b357b9",
+							"host": [
+								"{{myServer}}posts"
+							],
+							"path": [
+								"65ba0e271a54d96d06b357b9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Single Post API",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{myServer}}posts/65ba0e271a54d96d06b357b9",
+									"host": [
+										"{{myServer}}posts"
+									],
+									"path": [
+										"65ba0e271a54d96d06b357b9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "281"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"119-eG5w3e1dieBhzuaahwf8WIKdT1M\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:45:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": {\n        \"_id\": \"65ba0c74b2ec3cd1a43cc186\",\n        \"name\": \"j.k. rowling \",\n        \"email\": \"jkrowling@gmail.com\",\n        \"avatar\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706691701/xatsmglmnkpdetzsmavs.jpg\",\n        \"posts\": 5,\n        \"__v\": 0\n    },\n    \"message\": \"Post Deleted Successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Post By Category API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myServer}}posts/categories/Education",
+							"host": [
+								"{{myServer}}posts"
+							],
+							"path": [
+								"categories",
+								"Education"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Post By Category API",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{myServer}}posts/categories/Education",
+									"host": [
+										"{{myServer}}posts"
+									],
+									"path": [
+										"categories",
+										"Education"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3363"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d23-g/cAlhW7mS3dWpE7cbezwX5zXtE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:45:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": [\n        {\n            \"_id\": \"65ba0f431a54d96d06b359db\",\n            \"title\": \"Tech Tonic: Sipping on the Latest in Technology\",\n            \"category\": \"Education\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692419/uk40mtte7svfvx4nowxy.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:13:39.212Z\",\n            \"updatedAt\": \"2024-01-31T09:13:39.212Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0f251a54d96d06b359a5\",\n            \"title\": \"A Tale of Two Cities, Great Expectations\",\n            \"category\": \"Education\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692390/kyycfpolfuhrgh8mkxms.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:13:09.413Z\",\n            \"updatedAt\": \"2024-01-31T09:13:09.413Z\",\n            \"__v\": 0\n        }\n    ],\n    \"message\": \"Post Fetched successfully\",\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Post By Author API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{myServer}}posts/users/65ba0ebe1a54d96d06b358ce",
+							"host": [
+								"{{myServer}}posts"
+							],
+							"path": [
+								"users",
+								"65ba0ebe1a54d96d06b358ce"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Post By Author API",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{myServer}}posts/users/65ba0ebe1a54d96d06b358ce",
+									"host": [
+										"{{myServer}}posts"
+									],
+									"path": [
+										"users",
+										"65ba0ebe1a54d96d06b358ce"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8299"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"206b-lNVs6ZenmXtpna6Ui67367P5Pyo\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jan 2024 09:46:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"data\": [\n        {\n            \"_id\": \"65ba0ff81a54d96d06b35fa7\",\n            \"title\": \"Spark & Spur: Igniting Creativity and Innovation\",\n            \"category\": \"Investment\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692600/lp0sz0pxrsf5y8lzjbcq.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:16:40.549Z\",\n            \"updatedAt\": \"2024-01-31T09:16:40.549Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0fbd1a54d96d06b35db9\",\n            \"title\": \"EcoEcho: Living Green in a Modern World\",\n            \"category\": \"Business\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692542/mlv6cniscc1303gk8uar.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:15:41.836Z\",\n            \"updatedAt\": \"2024-01-31T09:15:41.836Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0f8b1a54d96d06b35c9d\",\n            \"title\": \"Thread Tales: Fashioned by Life, Styled by You\",\n            \"category\": \"Art\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692492/du71ryqlqwtpkf2fogrv.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:14:51.616Z\",\n            \"updatedAt\": \"2024-01-31T09:14:51.616Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0f431a54d96d06b359db\",\n            \"title\": \"Tech Tonic: Sipping on the Latest in Technology\",\n            \"category\": \"Education\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692419/uk40mtte7svfvx4nowxy.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:13:39.212Z\",\n            \"updatedAt\": \"2024-01-31T09:13:39.212Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"65ba0f251a54d96d06b359a5\",\n            \"title\": \"A Tale of Two Cities, Great Expectations\",\n            \"category\": \"Education\",\n            \"description\": \"<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><p><br></p>\",\n            \"thumbnail\": \"http://res.cloudinary.com/dlolgpv91/image/upload/v1706692390/kyycfpolfuhrgh8mkxms.jpg\",\n            \"creator\": \"65ba0ebe1a54d96d06b358ce\",\n            \"createdAt\": \"2024-01-31T09:13:09.413Z\",\n            \"updatedAt\": \"2024-01-31T09:13:09.413Z\",\n            \"__v\": 0\n        }\n    ],\n    \"message\": \"Post by this author fetched successfully\",\n    \"success\": true\n}"
+						}
+					]
+				}
+			],
+			"description": "Documentation of all api related to post"
+		}
+	],
+	"variable": [
+		{
+			"key": "myServer",
+			"value": "http://localhost:8000/api/v1/"
+		}
+	]
+}

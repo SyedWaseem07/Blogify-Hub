@@ -37,7 +37,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
         $or: [{ name }, { email }],
     });
 
-    if (password.trim().length < 6)
+    if (password?.trim().length < 6)
         throw new ApiError(400, "Password must be atleast 6 characters");
     if (password !== confirmPassword)
         throw new ApiError(400, "Password and Confirm password must be same");

@@ -7,7 +7,6 @@ import moment from "moment";
 const PostAuthor = ({ creator, createdAt }) => {
     const [author, setAuthor] = useState([])
     const timeago = moment(createdAt).fromNow();
-
     useEffect(() => {
         if (creator) {
             axios.get(`/api/v1/users/${creator}`)
