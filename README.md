@@ -14,6 +14,19 @@ Welcome to Blogify Hub! This is a simple and powerful blogging platform that all
 
 ## API Documentation
 - **Link:** https://documenter.getpostman.com/view/32463080/2s9Yytg1Ae
+
+## Technologies Used
+
+- **Node.js**: Backend runtime environment.
+- **Express.js**: Web application framework for Node.js.
+- **MongoDB**: NoSQL database for data storage.
+- **JWT**: JSON Web Tokens for authentication.
+- **bcrypt**: for hashing the password of users.
+- **Cookie-Parser**: for accessing and setting cookies in user's browser securely.
+- **Multer**: for storing all the files uploaded on app in our local server.
+- **Cloudinary**: for uploading all files from local server to cloudinary cloud.
+
+  
 ## Getting Started
 
 ### Prerequisites
