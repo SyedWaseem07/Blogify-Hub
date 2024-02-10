@@ -20,10 +20,10 @@ const PostAuthor = ({ creator, createdAt }) => {
     return (
         <Link to={`/posts/user/${creator}`} className="post__author">
             <div className="post__author-avatar">
-                <img src={author.avatar} alt="" />
+                <img src={author?.avatar} alt="" />
             </div>
             <div className="post__author-details">
-                <h5>By : {author.name}</h5>
+                <h5>By : {author?.name}</h5>
                 <small> {timeago} </small>
             </div>
         </Link>

@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 import Layout from"./components/Layout"
 
 import {
@@ -15,7 +16,7 @@ import {
 import UserProvider from "./context/UserContext"
 import './index.css'
 
-
+if(process.env.NODE_ENV === "production")  disableReactDevTools();
 
 const router = createBrowserRouter([
     {

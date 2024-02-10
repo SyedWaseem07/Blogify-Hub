@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import { app } from "./app.js"
 import connectToDb from "./db/index.js"
 
+
 dotenv.config({
     path: "./env",
 })
@@ -17,3 +18,5 @@ connectToDb()
     })
 })
 .catch(error => console.log("Connection failed", error))
+
+
