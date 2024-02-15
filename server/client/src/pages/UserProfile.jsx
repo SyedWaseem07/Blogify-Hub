@@ -19,7 +19,7 @@ const UserProfile = () => {
 
 
     useEffect(() => {
-        const token = currentUser?.refreshToken;
+        const token = currentUser?.name;
         if (!token) navigate("/login");
 
         axios.get(`/api/v1/users/${id}`)
