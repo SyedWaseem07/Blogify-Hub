@@ -279,6 +279,8 @@ input, select, textarea {
 	display: block;
 	margin-bottom: 1rem;
 }
+
+/* Login page success page css added */
 .form__success-message{
 	background: green;
 	color:  var(--color-white);
