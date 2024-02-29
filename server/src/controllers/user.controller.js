@@ -79,7 +79,9 @@ const loginUser = asyncHandler(async (req, res) => {
 
     const user = await User.findOne({ email });
 
+
     if (!user) throw new ApiError(400, "User is not registered");
+
 
     const isPasswordCorrect = await user.isPasswordCorrect(password);
 
@@ -189,9 +191,9 @@ const editUserProfile = asyncHandler(async (req, res) => {
     if (emailExists && emailExists._id === req.user?._id)
         throw new ApiError(400, "Email already exists");
 
-    const nameExists = await User.findOne({ name });
-    if (nameExists && nameExists._id !== req.user?._id)
-        throw new ApiError(400, "Name already exists");
+    // const nameExists = await User.findOne({ name });
+    // if (nameExists && nameExists._id !== req.user?._id)
+    //     throw new ApiError(400, "Name already exists");
 
     const user = await User.findById(req.user?._id);
 

@@ -15,11 +15,12 @@ const UserProfile = () => {
     const { currentUser, setCurrentUser } = useContext(UserContext);
     const [isAvatarTouched, setIsAvatarTouched] = useState(false);
     const [error, setError] = useState();
+    const [success, setSucess] = useState("");
     const { id } = useParams()
 
 
     useEffect(() => {
-        const token = currentUser?.refreshToken;
+        const token = currentUser?.name;
         if (!token) navigate("/login");
 
         axios.get(`/api/v1/users/${id}`)
@@ -40,6 +41,7 @@ const UserProfile = () => {
         axios.post(`/api/v1/users/change-avatar`, profileData)
             .then(res => {
                 setAvatar(res.data.data.avatar);
+                
             })
             .catch(err => {
                 const index = err.response.data.indexOf("<pre>");
@@ -63,6 +65,10 @@ const UserProfile = () => {
                     confirmNewPassword: confirmNewPassword
                 });
                 setCurrentUser(response.data.data);
+                setSucess("User details updated succssfully");
+                setCurrentPassword("");
+                setNewPassword("");
+                setConfirmNewPassword("");
             } catch (error) {
                 const index = error.response.data.indexOf("<pre>")
                 const Lastindex = error.response.data.indexOf("</pre>")
@@ -101,6 +107,9 @@ const UserProfile = () => {
                         
                         {error && <p className="form__error-message">
                             {error}
+                        </p>}
+                        {success && <p className="form__success-message">
+                            {success}
                         </p>}
 
                         <input type="text" placeholder="Full Name" value={name} onChange={e => setName(e.target.value)} />

@@ -19,4 +19,3 @@ connectToDb()
 })
 .catch(error => console.log("Connection failed", error))
 
-
