@@ -23,10 +23,7 @@ const Login = () => {
                 navigate("/");
             })
             .catch(error => {
-                const index = error.response.data.indexOf("<pre>")
-                const Lastindex = error.response.data.indexOf("</pre>")
-                const errMsg = error.response.data.substring(index + 5, Lastindex);
-                setError(errMsg);
+                setError("Invalid email or password");
             })
     }
 
