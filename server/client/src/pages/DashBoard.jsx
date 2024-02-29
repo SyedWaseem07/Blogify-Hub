@@ -12,7 +12,7 @@ const DashBoard = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const token = currentUser?.refreshToken;
+        const token = currentUser?.name;
         if (!token) navigate("/login");
 
         setIsLoading(true);

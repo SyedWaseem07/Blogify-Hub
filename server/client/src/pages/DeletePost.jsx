@@ -13,7 +13,7 @@ const DeletePost = ({ postId }) => {
     const location = useLocation();
     
     useEffect(() => {
-        const token = currentUser?.refreshToken;
+        const token = currentUser?.name;
         if (!token) navigate("/login");
     }, [])
 

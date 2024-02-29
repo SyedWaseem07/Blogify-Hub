@@ -205,7 +205,7 @@ const editUserProfile = asyncHandler(async (req, res) => {
     user.email = email;
     user.password = newPassword;
 
-    await user.save();
+    await user.save({ validateBeforeSave: false });
 
     const updatedUser = await User.findById(user._id).select("-password");
 
