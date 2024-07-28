@@ -1,4 +1,4 @@
-# Blogify Hub - Where Ideas Thrive
+# ✍️ Blogify Hub - Where Ideas Thrive
 
 Welcome to Blogify Hub! This is a simple and powerful blogging platform that allows you to create and share your thoughts with the world. This repository contains the source code for a simple and customizable blog app. The app is designed to allow users to create, edit, and delete blog posts, as well as browse through existing posts. It provides a user-friendly interface for managing blog content.
 
